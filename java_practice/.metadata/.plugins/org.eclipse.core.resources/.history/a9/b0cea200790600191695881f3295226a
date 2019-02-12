@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Day {
+	
+	public static void main(String[]args) {
+		
+		Scanner input =new Scanner(System.in);
+		int h;
+		int m,q,j,k,y;
+		y = input.nextInt();
+		m = input.nextInt();
+		if(m==1) {
+			m = 13;
+		}
+		if(m==2) {
+			m=14;
+		}
+		q =input.nextInt();
+		k = y%100;
+		j= y/100;
+		h = (q+ 26* (m + 1) / 10 + k + k / 4 + j / 4 + 5* j) % 7;
+		switch(h) {
+			case 0:
+				System.out.printf("Saturday");
+				break;
+			case 1:
+				System.out.printf("Sunday");
+				break;
+			case 2:
+				System.out.printf("Monday");
+				break;
+			case 3:
+				System.out.printf("Tuesday");
+				break;
+			case 4:
+				System.out.printf("Wednesday");
+				break;
+			case 5:
+				System.out.printf("Thursday");
+				break;
+			case 6:
+				System.out.printf("Friday");
+				break;
+		}
+	}
+}

@@ -1,0 +1,10 @@
+import java.math.BigDecimal;
+
+public class TT5 {
+	public static void main(String[] argc) {
+		double s=2;
+		double b=64;
+		BigDecimal a=new BigDecimal(Math.pow(s,b));
+		System.out.println(a);
+	}
+}

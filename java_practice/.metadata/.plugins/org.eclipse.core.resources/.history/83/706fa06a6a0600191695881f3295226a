@@ -1,0 +1,29 @@
+
+public class Test7 {
+	
+	public static void main(String[]args) {
+		int a[] =new int[100];
+		int j=0 ,k=0;
+		a[0]=2;
+		int len =1;
+		for(j=3;;j++) {
+			int flag =1 ;
+			for(k=0;k<len;k++) {
+				if(j%a[k]==0) {
+					flag =0;
+					break;
+				}
+			}
+			if(flag==1) {
+				a[len]=j;
+				len++;
+				if(len==100)break;
+			}
+		}
+		
+	for(j =0 ;j<100;j++) {
+			System.out.printf("%d ",a[j]);
+			if(j%10==0&&j!=0)System.out.println();
+		}
+	}
+}
