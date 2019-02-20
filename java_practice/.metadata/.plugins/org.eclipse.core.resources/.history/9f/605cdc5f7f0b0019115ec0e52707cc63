@@ -1,7 +1,0 @@
-
-public class TT5 {
-	public static void main(String[] argc) {
-		Long a=new Long(1);
-		System.out.println(a.SIZE);
-	}
-}
