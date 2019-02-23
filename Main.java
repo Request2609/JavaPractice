@@ -28,7 +28,6 @@ class Node {
 	public void setObj(Object obj) {
 		this.obj = obj;
 	}
-
 }
 
 public class Main {
@@ -36,10 +35,6 @@ public class Main {
 	private Node first;
 	private Node last;
 	private int size;
-
-	public void add() {
-
-	}
 
 	public void add(Object obj) {
 
@@ -52,7 +47,6 @@ public class Main {
 			first = n;
 			last = n;
 		} else {
-
 			n.setPrevious(last);
 			n.setObj(obj);
 			n.setNext(null);
@@ -64,23 +58,51 @@ public class Main {
 
 	public Object get(int index) {
 		check(index);
+//这样遍历链表找元素不高效
+//		if (first == null) {
+//			return null;
+//		}
+//		Node temp = first;
+//		int count = 0;
+//		while (temp != null) {
+//
+//			if (count == index) {
+//				break;
+//			}
+//			temp = temp.getNext();
+//			count++;
+//		}
+//
+//		// index越界如何处理
+//		return temp.getObj();
 
-		if (first == null) {
-			return null;
-		}
-
-		Node temp = first;
-		int count = 0;
-		while (temp != null) {
-
-			if (count == index) {
-				break;
+		//使用折半的思想找元素
+		//size向右移一位,即size/2,当index小于这个值时,从前开始遍历链表
+		//否则从后开始遍历链表
+		
+		if(index <= (size>>1)) {
+			Node temp = first ;
+			int count =0 ;
+			while(temp!=null) {
+				if(count == index) {
+					return temp.getObj();
+				}
+				count++ ;
+				temp = temp.getNext();
 			}
-			temp = temp.getNext();
-			count++;
 		}
-		// index越界如何处理
-		return temp.getObj();
+		else {
+			Node temp = last ;
+			int count =size-1;
+			while(temp!=null) {
+				if(count==index) {
+					return temp.getObj();
+				}
+				count-- ;
+				temp = temp.getPrevious() ;
+			}
+		}
+		return null ;
 	}
 
 	public Node node(int index) {
@@ -147,7 +169,7 @@ public class Main {
 		Main ls = new Main();
 		ls.add("aaa");
 		ls.add("ddd");
-		System.out.println(ls.get(0).toString());
-		System.out.println(ls.get(1).toString());
+		System.out.println(ls.get(0));
+		System.out.println(ls.get(1));
 	}
 }

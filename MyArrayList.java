@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 class MArrayList {
 
@@ -55,6 +57,7 @@ class MArrayList {
 	}
 
 	public void remove(int index) {
+	
 		// 删除指定位置的对象
 		int len = elements.length;
 		check(index);
