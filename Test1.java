@@ -1,61 +1,25 @@
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Label;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
-//实现ArrayList类 
+import java.awt.*;
 
-class Arraylist
-{
-	Object[] value ;
-	int size ;
-	
-	public Arraylist()
-	{
-		size = 0 ;
-		value = new Object[size] ;
-	}
-	
-	public Arraylist(int num)
-	{
-		value = new Object[num];
-	}
-	
-	public void add(Object obj)
-	{
-		
-		value[size] = obj ;
-		size++ ;
-		if(size >= value.length)
-		{
-			int newCapacity = value.length*2 ;
-			Object[] newlist = new Object[newCapacity] ;
-			
-			for(int i = 0 ; i<value.length ; i++)
-			{
-				newlist[i] = value[i] ;
-			}
-			value = newlist ;
-		}
-	}
-	
-	public Object get(int i)
-	{
-		
-		if(i > size-1 || i<0 )
-		{
-			
-			try{
-				throw new Exception();
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return value[i] ;
-	}
-	
-}
+//alertbox
+public class Test1 extends Application implements EventHandler<ActionEvent> {
 
-public class Test1 {
-	
-	public static void main(String[]arg){
-			Arraylist list = new Arraylist();
-					
-	}
+    public static void main(String[]args){
+
+    }
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+    }
+
+    @Override
+    public void handle(ActionEvent event) {
+
+    }
 }

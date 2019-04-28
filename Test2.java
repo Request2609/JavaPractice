@@ -1,53 +1,44 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-import static javafx.application.Application.launch;
+public class Test2 extends Application{
 
-
-
-public class Test2 extends Application implements EventHandler<ActionEvent> {
-
-    Stage window =null ;
-    Scene sne1,sne2 ;
-    Label lb  ;
-
-    Button bt1,bt2 ;
-
-    public static void main(String[] arg){
-        new Test2(arg) ;
-    }
-
-    public Test2(String[] args){
-        launch(args) ;
+    Stage window ;
+    Scene sne1, sne2 ;
+    public static void main(String[] args) {
+        launch(args);
     }
 
     public void start(Stage primaryStage){
 
         window = primaryStage ;
-        lb = new Label("Welcome to the first scene!") ;
-        bt1 = new Button("go to scene 2!") ;
+        Label lb1 = new Label("this is scene1") ;
+        Button bt1 = new Button("go to scene2!") ;
         bt1.setOnAction(e->window.setScene(sne2));
 
-        VBox layout = new VBox(20) ;
-        layout.getChildren().addAll(lb,bt1) ;
+        //layout1 children are laid out vertical column
+        VBox layout1 = new VBox(20) ;
+        layout1.getChildren().addAll(lb1, bt1) ;
+        //将vbox 放到边框中
+        sne1 = new Scene(layout1, 200, 200) ;
 
-        bt2 = new Button("This scene socks,go back to scene 1!") ;
+        Label lb2 = new Label("this is scene2") ;
+        Button bt2 = new Button("go back to scene1!") ;
         bt2.setOnAction(e->window.setScene(sne1));
 
-        StackPane  layout2 = new StackPane() ;
-        layout2.getChildren().add(bt2) ;
-        window.setTitle("Title here!");
-        window.show();
-    }
+        StackPane layout2 = new StackPane() ;
+        layout2.getChildren().addAll(lb2, bt2) ;
+        sne2 = new Scene(layout2, 200,100) ;
+        window.setScene(sne1);
 
-    public void handle(ActionEvent ev){
-
+        window.setTitle("this is a title!");
+        window.show() ;
     }
 }
